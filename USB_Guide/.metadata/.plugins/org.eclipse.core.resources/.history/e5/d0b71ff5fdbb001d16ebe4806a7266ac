@@ -1,0 +1,17 @@
+/*
+ * usbd_driver.c
+ *
+ *  Created on: Mar 6, 2023
+ *      Author: IsaiahOdunze
+ */
+#include "usbd_driver.h"
+
+void initialize_usb_pins(){
+	//Enables the clock for GPIOB
+	SET_BIT(RCC->AHB1ENR, RCC_AHB1ENR_GPIOBEN);
+	//Sets alternate function 12 for : PB14 (-), and Pb15 (+).
+	MODIFY_REG(GPIOB->AFR[1],
+			GPIO_AFRH_AFSEL14 | GPIO_AFRH_AFSEL15,
+			_VAL2FLD(GPIO_AFRH_AFSEL14, 2) | _VAL2FLD(GPIO_AFRH_AFSEL14, 2)
+		);
+}

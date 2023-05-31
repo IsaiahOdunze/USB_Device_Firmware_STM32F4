@@ -1,0 +1,15 @@
+#include "Helpers/logger.h"
+#include "usbd_framework.h"
+
+UsbDevice usb_device;
+
+int main(void)
+{
+    /* Loop forever */
+	log_info("Program entry point.");
+	usbd_initialize(&usb_device);
+	for(;;)
+	{
+		usbd_poll();
+	}
+}

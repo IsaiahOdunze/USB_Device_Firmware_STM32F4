@@ -1,0 +1,22 @@
+/*
+ * usbd_framework.c
+ *
+ *  Created on: Mar 6, 2023
+ *      Author: IsaiahOdunze
+ */
+
+
+#include "usbd_framework.h"
+
+void usbd_initialize()
+{
+
+	//initialize_gpio_pins();
+	//initialize_core();
+	//connect();
+}
+
+void usbd_poll()
+{
+	usb_driver.poll();
+}

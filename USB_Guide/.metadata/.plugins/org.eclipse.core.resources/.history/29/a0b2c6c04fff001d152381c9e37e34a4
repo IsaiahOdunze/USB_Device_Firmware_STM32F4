@@ -1,0 +1,25 @@
+/*
+ * usbd_framework.c
+ *
+ *  Created on: Mar 6, 2023
+ *      Author: IsaiahOdunze
+ */
+
+
+#include "usbd_framework.h"
+#include "usbd_driver.h"
+
+static UsbDevice *usbd_handle;
+
+void usbd_initialize(UsbDevice *usb_device)
+{
+	usbd_handle = usb_device;
+	usb_driver.initialize_gpio_pins();
+	usb_driver.initialize_core();
+	usb_driver.connect();
+}
+
+void usbd_poll()
+{
+	usb_driver.poll();
+}
